@@ -31,15 +31,24 @@
         <!-- 分类 -->
         <van-grid :border="false" :column-num="5">
           <van-grid-item
-            v-for="item in homeData.header.channels"
+            v-for="(item, index) in homeData.header.channels"
             :key="item.id"
-            :icon="item.icon"
-            :text="item.title"
-          />
+          >
+            <template #default>
+              <div
+                class="channels_item"
+                :style="{ backgroundColor: header_channels_color[index] }"
+              >
+                <span class="item_title">{{ item.title }}</span>
+                <div class="item_img"><img :src="item.icon" /></div>
+              </div>
+            </template>
+          </van-grid-item>
         </van-grid>
       </div>
       <!-- 热门活动 -->
       <hot-events :data="homeData.header.hot_events" />
+
       <!--今日推荐-->
       <recommend :info="rec_today" />
     </div>
@@ -56,7 +65,19 @@ export default {
   data() {
     return {
       homeData: null,
-      rec_today: []
+      rec_today: [],
+      header_channels_color: [
+        '#bad8f1',
+        '#d3e4f5',
+        '#cfe7f7',
+        '#cceaf8',
+        '#cee2f5',
+        '#bcddb0',
+        '#d6e8b7',
+        '#e2edbc',
+        '#e0ebac',
+        '#cee3a6'
+      ]
     }
   },
   created() {
@@ -73,8 +94,7 @@ export default {
     get_axios() {
       this.axios({
         method: 'get',
-        url: '/home',
-        dataType: 'json'
+        url: '/home'
       }).then(res => {
         console.log('读取ajax')
         this.homeData = res.data.result
@@ -110,6 +130,37 @@ export default {
     line-height: 0;
   }
 
+  .header_channels {
+    .channels_item {
+      box-sizing: border-box;
+      width: 95%;
+      height: 80px;
+      background-color: skyblue;
+      border-radius: 20px 0 20px;
+      position: relative;
+      .item_img,
+      .item_title {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .item_title {
+        top: 8px;
+        font-size: 12px;
+        color: gray;
+        width: 100%;
+        text-align: center;
+      }
+      .item_img {
+        bottom: 2px;
+        width: 60%;
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+  }
   .header_swiper {
     //padding: 20px;
     border-radius: 10px;

@@ -1,6 +1,16 @@
 <template>
   <div class="Recommend">
-    <span>{{ info.title }}</span>
+    <van-divider
+      :style="{
+        fontSize: '18px',
+        color: 'green',
+        borderColor: 'green',
+        padding: '0 10px'
+      }"
+    >
+      {{ info.title }}
+    </van-divider>
+    <!--    <span></span>-->
     <rec-item v-for="item in info.list" :key="item.r.id" :info="item.r" />
   </div>
 </template>
