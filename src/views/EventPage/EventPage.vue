@@ -3,8 +3,8 @@
     <van-sticky>
       <van-nav-bar
         :title="info.name"
-        right-text="按钮"
         left-arrow
+        right-text="按钮"
         @click-left="$router.back()"
         @click-right="showShare = true"
       >
@@ -19,8 +19,8 @@
     </div>
     <van-share-sheet
       v-model="showShare"
-      title="立即分享给好友"
       :options="options"
+      title="立即分享给好友"
       @select="onSelect"
     />
   </div>
@@ -52,14 +52,20 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
+<style lang="less" scoped>
 .event_page {
   .act_iframe {
     box-sizing: border-box;
     height: calc(100vh - 46px);
+    overflow: hidden;
+    position: relative;
+
     iframe {
+      position: absolute;
+      right: -20px;
+      top: 0;
       border: none;
-      width: 100vw;
+      width: calc(100% + 20px);
       height: 100%;
     }
   }
