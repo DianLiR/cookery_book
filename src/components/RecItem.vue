@@ -1,18 +1,19 @@
 <template>
   <div class="rec_item">
-    <div class="name_box">
-      <!-- 用户信息-->
-      <van-image
-        :src="info.a.p"
-        fit="cover"
-        height="30"
-        lazy-load
-        round
-        width="30"
-      />
-      <span title="name">{{ info.an }}</span>
-      <span title="lv">LV.{{ info.a.lvl }}</span>
-    </div>
+    <!--    <div class="name_box">-->
+    <!--      &lt;!&ndash; 用户信息&ndash;&gt;-->
+    <!--      <van-image-->
+    <!--        :src="info.a.p"-->
+    <!--        fit="cover"-->
+    <!--        height="30"-->
+    <!--        lazy-load-->
+    <!--        round-->
+    <!--        width="30"-->
+    <!--      />-->
+    <!--      <span title="name">{{ info.an }}</span>-->
+    <!--      <span title="lv">LV.{{ info.a.lvl }}</span>-->
+    <!--    </div>-->
+    <author-info :src="info.a.p" :name="info.an" :lv="info.a.lvl" />
     <span class="title_box">
       <!-- 标题 -->
       {{ info.n }}
@@ -32,8 +33,10 @@
 </template>
 
 <script>
+import AuthorInfo from '@/components/AuthorInfo'
 export default {
   name: 'RecItem',
+  components: { AuthorInfo },
   props: ['info'],
   created() {
     // console.log(this.info)
@@ -46,20 +49,6 @@ export default {
   margin: 15px 0;
   border: 1px solid transparent;
 
-  .name_box {
-    display: flex;
-    align-items: center;
-
-    span[title='name'] {
-      margin: 0 5px;
-    }
-
-    span[title='lv'] {
-      color: #cebd6b;
-      font-style: italic;
-      font-size: 10px;
-    }
-  }
 
   .title_box {
     display: block;

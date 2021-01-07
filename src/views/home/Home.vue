@@ -18,7 +18,11 @@
       <div class="header_swiper">
         <!--  顶部轮播图 -->
         <van-swipe :autoplay="3000" :height="220" :show-indicators="false">
-          <van-swipe-item v-for="item in homeData.header.dsps" :key="item.d.id">
+          <van-swipe-item
+            v-for="item in homeData.header.dsps"
+            @click="toDetail(item.d.url)"
+            :key="item.d.id"
+          >
             <van-image
               :alt="item.accessibility_text"
               :src="item.d.i"
@@ -81,16 +85,19 @@ export default {
     }
   },
   created() {
-    if (!localStorage.getItem('homeData')) {
-      this.get_axios()
-      // return
-    } else {
+    if (localStorage.getItem('homeData')) {
       this.get_local()
+    } else {
+      this.get_axios()
     }
-
-    // }
   },
   methods: {
+    toDetail(url) {
+      let id = url.replace(/[^\d]/g, '')
+      let str = url.match(/m\/(\S*)\?/)[1]
+      this.$router.push({ name: str, params: { id } })
+    },
+
     get_axios() {
       this.axios({
         method: 'get',

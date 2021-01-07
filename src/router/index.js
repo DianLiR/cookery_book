@@ -36,6 +36,24 @@ const routes = [
     component: () => import('../views/EventPage/EventPage')
   },
   {
+    path: '/detail/:id',
+    //菜谱详情页面
+    name: 'details',
+    component: () => import('../views/Detail/Detail')
+  },
+  {
+    path: '/coursedetail/:id',
+    //商品详情页面
+    name: 'coursedetail',
+    component: () => import('../views/CourseDetail/CourseDetail')
+  },
+  {
+    path: '/malldetail/:id',
+    //课程详情页面
+    name: 'malldetail',
+    component: () => import('../views/MallDetail/MallDetail')
+  },
+  {
     path: '*',
     redirect: {
       name: 'Home'

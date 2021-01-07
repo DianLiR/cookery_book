@@ -1,6 +1,7 @@
 <template>
   <div class="HotEvents">
-    <van-cell value="更多" is-link @click="toActivity()">
+    <!--    <van-cell value="更多" is-link @click="toActivity()">-->
+    <van-cell value="更多" is-link>
       <template #title>
         <span class="custom-title">{{ data.title }}</span>
       </template>
