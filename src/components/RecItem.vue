@@ -49,7 +49,6 @@ export default {
   margin: 15px 0;
   border: 1px solid transparent;
 
-
   .title_box {
     display: block;
     font-size: 18px;

@@ -1,5 +1,5 @@
 <template>
-  <div class="AuthorInfo" :style="style">
+  <div class="AuthorInfo" :style="styles">
     <!-- 用户信息-->
     <van-image :src="src" fit="cover" height="35" lazy-load round width="30" />
     <span title="name">{{ name }}</span>
@@ -10,7 +10,15 @@
 <script>
 export default {
   name: 'AuthorInfo',
-  props: ['src', 'name', 'lv', 'style']
+  props: {
+    src: String,
+    name: String,
+    lv: Number,
+    styles: {
+      type: Object,
+      default: null
+    }
+  }
 }
 </script>
 

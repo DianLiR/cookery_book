@@ -41,7 +41,7 @@ export default {
     }
   },
   created() {
-    this.info = this.$route.params.info
+    this.info = { name: this.$route.params.name, url: this.$route.params.url }
   },
   methods: {
     onSelect(option) {

@@ -12,7 +12,7 @@
         <van-swipe-item
           v-for="item in data.events"
           :key="item.id"
-          @click="toActivity(item.id, item)"
+          @click="toActivity(item)"
         >
           <div>
             <img :src="item.image" alt="item.name" />
@@ -29,8 +29,11 @@ export default {
   name: 'HotEvents',
   props: ['data'],
   methods: {
-    toActivity(id, info) {
-      this.$router.push({ name: 'EventPage', params: { id, info } })
+    toActivity(info) {
+      this.$router.push({
+        name: 'EventPage',
+        params: { id: info.id, name: info.name, url: info.url }
+      })
     }
   }
 }
@@ -53,9 +56,7 @@ export default {
       }
     }
   }
-  .list {
-    //height: 120px;
-  }
+
   /deep/ .van-cell {
     padding: 10px 0;
   }

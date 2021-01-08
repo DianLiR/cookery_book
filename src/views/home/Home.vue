@@ -15,8 +15,9 @@
     </van-sticky>
     <div class="content">
       <!-- 主体内容 -->
-      <div class="header_swiper">
-        <!--  顶部轮播图 -->
+      <div class="c_skeleton" v-if="loading"></div>
+      <div v-else class="header_swiper">
+        <!-- 顶部轮播图 -->
         <van-swipe :autoplay="3000" :height="220" :show-indicators="false">
           <van-swipe-item
             v-for="item in homeData.header.dsps"
@@ -31,9 +32,11 @@
           </van-swipe-item>
         </van-swipe>
       </div>
+
       <div class="header_channels">
         <!-- 分类 -->
-        <van-grid :border="false" :column-num="5">
+        <van-skeleton :row="6" v-if="loading" style="margin:15px" animate />
+        <van-grid :border="false" :column-num="5" v-else>
           <van-grid-item
             v-for="(item, index) in homeData.header.channels"
             :key="item.id"
@@ -51,10 +54,11 @@
         </van-grid>
       </div>
       <!-- 热门活动 -->
-      <hot-events :data="homeData.header.hot_events" />
+      <div class="c_skeleton" v-if="loading"></div>
+      <hot-events v-else :data="homeData.header.hot_events" />
 
       <!--今日推荐-->
-      <recommend :info="rec_today" />
+      <recommend :info="rec_today" v-if="rec_today" />
     </div>
   </div>
 </template>
@@ -69,7 +73,8 @@ export default {
   data() {
     return {
       homeData: null,
-      rec_today: [],
+      rec_today: null,
+      loading: true,
       header_channels_color: [
         '#bad8f1',
         '#d3e4f5',
@@ -85,7 +90,8 @@ export default {
     }
   },
   created() {
-    if (localStorage.getItem('homeData')) {
+    const localHomeDate = JSON.parse(localStorage.getItem('homeData'))
+    if (localHomeDate && localHomeDate.expire > Date.now()) {
       this.get_local()
     } else {
       this.get_axios()
@@ -103,19 +109,27 @@ export default {
         method: 'get',
         url: '/home'
       }).then(res => {
+        this.loading = false
         console.log('读取ajax')
         this.homeData = res.data.result
         this.rec_today = res.data.result.features_list
         this.rec_today.list.shift()
-        localStorage.setItem('homeData', JSON.stringify(res.data.result))
+        localStorage.setItem(
+          'homeData',
+          JSON.stringify({
+            expire: Date.now() + 1 * 60 * 60 * 1000,
+            data: res.data.result
+          })
+        )
       })
     },
     get_local() {
       console.log('读取本地')
       let local_data = JSON.parse(localStorage.getItem('homeData'))
-      this.rec_today = local_data.features_list
+      this.loading = false
+      this.rec_today = local_data.data.features_list
       this.rec_today.list.shift()
-      this.homeData = local_data
+      this.homeData = local_data.data
     },
     toSort() {
       console.log('to分类')
@@ -131,6 +145,11 @@ export default {
 .Home {
   .content {
     padding: 0 10px;
+    .c_skeleton {
+      background-color: #f3f4f6;
+      width: 100%;
+      height: 220px;
+    }
   }
 
   /deep/ .van-search__action {

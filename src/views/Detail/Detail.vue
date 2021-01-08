@@ -1,6 +1,12 @@
 <template>
   <div class="Detail">
-    <van-nav-bar left-arrow @click-left="$router.back()">
+    <van-nav-bar
+      placeholder
+      left-arrow
+      @click-left="$router.back()"
+      fixed
+      z-index="100"
+    >
       <template #right>
         <van-icon name="more-o" size="20px" />
       </template>
@@ -11,22 +17,61 @@
           <van-image :src="recipe.original_photo_path" />
         </div>
         <div class="content">
+          <!-- 正文内容 -->
+          <!-- 标题 -->
           <h2>{{ recipe.title }}</h2>
+
+          <div class="info">
+            <!-- tag标签 -->
+            <div v-if="recipe.hq">
+              <font-awesome-icon icon="star" color="#e67e22" />
+            </div>
+            <div>
+              <font-awesome-icon icon="eye" color="#e67e22" />
+              {{ recipe.views_count_text }}
+            </div>
+            <div>
+              <font-awesome-icon icon="heart" color="#e67e22" />
+              {{ recipe.favo_counts_text }}
+            </div>
+          </div>
+          <!-- 用户信息 -->
           <author-info
-            :style="{ margin: '10px 0' }"
+            :styles="{ margin: '15px 0' }"
             :src="recipe.author_photo"
             :name="recipe.author"
           />
-          <br />
-          <div class="info">
-            <span v-if="recipe.hq">精品</span>
-            <span>
-              <font-awesome-icon :icon="['fas', 'eye']" color="#fed022"/>
-              {{ recipe.views_count_text }}
-            </span>
-            <span>收藏{{ recipe.favo_counts_text }}</span>
-            <span>学做{{ recipe.rate_count }}</span>
+          <!-- 美食故事 -->
+          <span v-if="recipe.cookstory" class="cookstory">
+            {{ recipe.cookstory }}
+          </span>
+          <!-- 制作难度&时间 -->
+          <div
+            v-if="recipe.cook_time && recipe.cook_difficulty"
+            class="cook_info"
+          >
+            <div>
+              <van-image :src="recipe.cook_time_image" width="35" />
+              <span>{{ recipe.cook_time }}</span>
+            </div>
+            <div>
+              <van-image :src="recipe.cook_difficulty_image" width="35" />
+              <span>{{ recipe.cook_difficulty }}</span>
+            </div>
           </div>
+          <!-- 折叠面板 -->
+          <van-collapse v-model="activeNames">
+            <van-collapse-item title="制作材料" name="1">
+              <!-- 制作材料 -->
+              <materials :checklist="recipe.major" />
+            </van-collapse-item>
+            <van-collapse-item title="制作步骤" name="2">
+              <!-- 制作步骤 -->
+              <make-step :step="recipe.cookstep" />
+            </van-collapse-item>
+          </van-collapse>
+          <span class="create_time">发布于{{ recipe.create_time }}</span>
+          <related-suggestion :rate="recipe.rate" :notes="recipe.notes" />
         </div>
       </div>
     </template>
@@ -36,15 +81,19 @@
 <script>
 // import DetailHeader from '@/components/DetailHeader'
 import AuthorInfo from '@/components/AuthorInfo'
+import Materials from '@/components/Materials'
+import MakeStep from '@/components/MakeStep.vue'
+import RelatedSuggestion from '@/components/RelatedSuggestion/RelatedSuggestion.vue'
 export default {
   name: 'Detail',
-  components: { AuthorInfo },
+  components: { AuthorInfo, Materials, MakeStep, RelatedSuggestion },
   // components: { DetailHeader },
   data() {
     return {
       banner_id: null,
       recipe: null,
-      isShow: false
+      isShow: false,
+      activeNames: ['1']
     }
   },
   created() {
@@ -98,19 +147,54 @@ export default {
       border-radius: 20px 20px 0 0;
       padding: 10px 15px;
       min-height: 150px;
+      /deep/.van-cell,
+      /deep/.van-collapse-item__content {
+        padding: 12px 0;
+      }
+      // /deep/.van-collapse-item__content {
+      //   padding: 12px 0;
+      // }
+      .create_time {
+        display: block;
+        padding: 10px 0;
+        color: #858585;
+        font-size: 12px;
+      }
+      .cookstory {
+        display: block;
+        letter-spacing: 2px;
+        white-space: pre-line;
+        line-height: 20px;
+        overflow: hidden;
+        border: 1px dashed #666666;
+        box-sizing: border-box;
+        padding: 5px;
+        border-radius: 20px 0 20px;
+      }
+      .cook_info {
+        display: flex;
+        margin: auto;
+        width: 70%;
+        // height: 45px;
+        padding: 15px 0;
+        justify-content: space-between;
+        div {
+          display: flex;
+          align-items: center;
+          span {
+            margin-left: 5px;
+          }
+        }
+      }
       h2 {
         margin: 0;
       }
       .info {
         display: flex;
-        width: 80%;
-        margin: auto;
-        border: 1px solid #000;
-        //border: 1px solid #000;
-        justify-content: space-around;
-        > span {
-          border: 1px solid #000;
-        }
+        width: 55%;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 5px;
       }
     }
   }
