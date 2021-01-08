@@ -1,6 +1,6 @@
 <template>
   <div class="Home">
-    <van-sticky>
+    <van-sticky z-index="999">
       <!-- 顶部 + 搜索栏 -->
       <van-search
         placeholder="搜索菜谱、食材等"
@@ -143,6 +143,13 @@ export default {
 
 <style lang="less" scoped>
 .Home {
+  /deep/.van-sticky--fixed {
+    background-color: #fff;
+    height: 35px;
+    .van-divider {
+      margin: 0;
+    }
+  }
   .content {
     padding: 0 10px;
     .c_skeleton {

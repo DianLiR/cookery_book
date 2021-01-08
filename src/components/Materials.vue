@@ -15,7 +15,10 @@
     </van-sticky> -->
     <ul class="list">
       <li v-for="(item, index) in checklist" :key="index">
-        <span @click="toLink(item)" :style="{ color: item.tu ? 'green' : '' }">
+        <span
+          @click="toLink(item)"
+          :style="{ color: item.tu ? '#ff7f50' : '' }"
+        >
           {{ item.title }}
         </span>
         <span>{{ item.note }}</span>
@@ -52,14 +55,15 @@ export default {
 <style lang="less" scoped>
 .materials {
   // margin: 10px 0;
-  border: 1px solid #666666;
+  // border: 1px solid #666666;
+  border: 1px solid @peace;
   border-radius: 10px;
   overflow: hidden;
   .title {
     text-align: center;
     height: 30px;
     line-height: 30px;
-    background-color: #666666;
+    background-color: @peace;
     color: #fff;
     font-size: 18px;
   }

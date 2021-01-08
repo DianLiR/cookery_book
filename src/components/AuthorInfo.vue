@@ -32,7 +32,7 @@ export default {
   }
 
   span[title='lv'] {
-    color: #cebd6b;
+    color: @goldenSand;
     font-style: italic;
     font-size: 10px;
   }

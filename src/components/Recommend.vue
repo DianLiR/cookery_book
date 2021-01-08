@@ -1,15 +1,17 @@
 <template>
   <div class="Recommend">
-    <van-divider
-      :style="{
-        fontSize: '18px',
-        color: 'green',
-        borderColor: 'green',
-        padding: '0 10px'
-      }"
-    >
-      {{ info.title }}
-    </van-divider>
+    <van-sticky :offset-top="50">
+      <van-divider
+        :style="{
+          fontSize: '18px',
+          color: '#1e90ff',
+          borderColor: '#1e90ff',
+          padding: '0 10px'
+        }"
+      >
+        {{ info.title }}
+      </van-divider>
+    </van-sticky>
     <!--    <span></span>-->
     <rec-item v-for="item in info.list" :key="item.r.id" :info="item.r" />
   </div>
@@ -23,11 +25,3 @@ export default {
   props: ['info']
 }
 </script>
-
-<style scoped lang="less">
-.Recommend {
-  span {
-    font-size: 22px;
-  }
-}
-</style>

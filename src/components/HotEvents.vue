@@ -41,6 +41,9 @@ export default {
 
 <style scoped lang="less">
 .HotEvents {
+  /deep/.van-cell__value {
+    color: @bayWharf;
+  }
   .scroll_box {
     //height: 160px;
 

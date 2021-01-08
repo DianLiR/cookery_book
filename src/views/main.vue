@@ -3,7 +3,11 @@
     <div class="main_box">
       <router-view />
     </div>
-    <van-tabbar v-model="active" active-color="green" inactive-color="#606468">
+    <van-tabbar
+      v-model="active"
+      active-color="#1e90ff"
+      inactive-color="#747d8c"
+    >
       <van-tabbar-item
         v-for="(item, index) in tabbarDate"
         :key="index"

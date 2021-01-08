@@ -65,7 +65,7 @@ export default {
   }
   .rec_label {
     margin: 5px 0;
-    color: #9e9e9e;
+    color: @bayWharf;
     font-size: 12px;
   }
 }

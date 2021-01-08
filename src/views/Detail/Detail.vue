@@ -24,14 +24,15 @@
           <div class="info">
             <!-- tag标签 -->
             <div v-if="recipe.hq">
-              <font-awesome-icon icon="star" color="#e67e22" />
+              <van-tag type="primary" plain>精品</van-tag>
+              <!-- <font-awesome-icon icon="star" color="#ff7f50" /> -->
             </div>
             <div>
-              <font-awesome-icon icon="eye" color="#e67e22" />
+              <font-awesome-icon icon="eye" color="#ff7f50" />
               {{ recipe.views_count_text }}
             </div>
             <div>
-              <font-awesome-icon icon="heart" color="#e67e22" />
+              <font-awesome-icon icon="heart" color="#ff7f50" />
               {{ recipe.favo_counts_text }}
             </div>
           </div>
@@ -71,7 +72,7 @@
             </van-collapse-item>
           </van-collapse>
           <span class="create_time">发布于{{ recipe.create_time }}</span>
-          <related-suggestion :rate="recipe.rate" :notes="recipe.notes" />
+          <!-- <related-suggestion :rate="recipe.rate" :notes="recipe.notes" /> -->
         </div>
       </div>
     </template>
@@ -83,10 +84,10 @@
 import AuthorInfo from '@/components/AuthorInfo'
 import Materials from '@/components/Materials'
 import MakeStep from '@/components/MakeStep.vue'
-import RelatedSuggestion from '@/components/RelatedSuggestion/RelatedSuggestion.vue'
+// import RelatedSuggestion from '@/components/RelatedSuggestion/RelatedSuggestion.vue'
 export default {
   name: 'Detail',
-  components: { AuthorInfo, Materials, MakeStep, RelatedSuggestion },
+  components: { AuthorInfo, Materials, MakeStep },
   // components: { DetailHeader },
   data() {
     return {
@@ -162,13 +163,10 @@ export default {
       }
       .cookstory {
         display: block;
-        letter-spacing: 2px;
-        white-space: pre-line;
+        letter-spacing: 1px;
         line-height: 20px;
-        overflow: hidden;
         border: 1px dashed #666666;
-        box-sizing: border-box;
-        padding: 5px;
+        padding: 10px;
         border-radius: 20px 0 20px;
       }
       .cook_info {
