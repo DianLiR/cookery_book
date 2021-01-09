@@ -1,7 +1,7 @@
 <template>
   <div class="AuthorInfo" :style="styles">
     <!-- 用户信息-->
-    <van-image :src="src" fit="cover" height="35" lazy-load round width="30" />
+    <van-image :src="src" fit="cover" height="35" lazy-load round width="35" />
     <span title="name">{{ name }}</span>
     <span title="lv" v-if="lv">LV.{{ lv }}</span>
   </div>

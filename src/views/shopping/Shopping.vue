@@ -10,7 +10,4 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
-.Shopping {
-}
-</style>
+<style scoped lang="less"></style>

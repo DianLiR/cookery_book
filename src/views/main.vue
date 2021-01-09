@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="main_box">
-      <router-view />
+      <keep-alive><router-view /></keep-alive>
     </div>
     <van-tabbar
       v-model="active"
@@ -25,9 +25,15 @@
 <script>
 export default {
   name: 'Main',
+  // computed: {
+  //   active() {
+  //     return this.$route.name
+  //   }
+  // },
   data() {
     return {
-      active: 'Home',
+      active: this.$route.name || 'Home',
+      // active: 'Home',
       tabbarDate: [
         {
           title: '首页',
@@ -36,16 +42,22 @@ export default {
           path: '/home'
         },
         {
-          title: '课堂',
-          icon: 'video-o',
-          name: 'Study',
-          path: '/study'
+          title: '列表',
+          icon: 'orders-o',
+          name: 'List',
+          path: '/list'
         },
         {
           title: '商城',
           icon: 'shop-o',
           name: 'Shopping',
           path: '/shopping'
+        },
+        {
+          title: '我的',
+          icon: 'user-o',
+          name: 'User',
+          path: '/user'
         }
       ]
     }

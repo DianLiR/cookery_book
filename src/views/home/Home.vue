@@ -5,12 +5,12 @@
       <van-search
         placeholder="搜索菜谱、食材等"
         shape="round"
-        show-action
-        @click="toSearch"
+        @click="$router.push('Search')"
+        disabled
       >
-        <template #action>
-          <van-icon name="label-o" size="30" tab="span" @click="toSort" />
-        </template>
+        <!-- <template #action>
+          <van-icon name="search-o" size="30" tab="span" @click="toSort" />
+        </template> -->
       </van-search>
     </van-sticky>
     <div class="content">
@@ -40,6 +40,7 @@
           <van-grid-item
             v-for="(item, index) in homeData.header.channels"
             :key="item.id"
+            @click="toDetails(item)"
           >
             <template #default>
               <div
@@ -98,6 +99,17 @@ export default {
     }
   },
   methods: {
+    toDetails(item) {
+      // let id = item.replace(/[^\d]/g, '')
+      // let str = item.match(/m\/(\S*)\?/)[1]
+      this.$router.push({
+        name: 'Catalogs',
+        params: {
+          id: item.id,
+          name: item.title
+        }
+      })
+    },
     toDetail(url) {
       let id = url.replace(/[^\d]/g, '')
       let str = url.match(/m\/(\S*)\?/)[1]
@@ -130,13 +142,10 @@ export default {
       this.rec_today = local_data.data.features_list
       this.rec_today.list.shift()
       this.homeData = local_data.data
-    },
-    toSort() {
-      console.log('to分类')
-    },
-    toSearch() {
-      console.log('to搜索')
     }
+    // toSearch() {
+    //   console.log('to搜索')
+    // }
   }
 }
 </script>
@@ -159,9 +168,9 @@ export default {
     }
   }
 
-  /deep/ .van-search__action {
-    line-height: 0;
-  }
+  // /deep/ .van-search__action {
+  //   line-height: 0;
+  // }
 
   .header_channels {
     .channels_item {

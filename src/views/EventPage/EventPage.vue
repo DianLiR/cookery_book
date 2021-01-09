@@ -13,7 +13,6 @@
         </template>
       </van-nav-bar>
     </van-sticky>
-
     <div class="act_iframe">
       <iframe :src="info.url"></iframe>
     </div>

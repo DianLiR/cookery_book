@@ -9,11 +9,7 @@
 
     <div class="scroll_box">
       <van-swipe :loop="false" :width="250" :show-indicators="false">
-        <van-swipe-item
-          v-for="item in data.events"
-          :key="item.id"
-          @click="toActivity(item)"
-        >
+        <van-swipe-item v-for="item in data.events" :key="item.id">
           <div>
             <img :src="item.image" alt="item.name" />
             <span>{{ item.name }}</span>

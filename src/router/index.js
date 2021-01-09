@@ -19,14 +19,19 @@ const routes = [
         component: Home
       },
       {
-        path: 'shopping',
-        name: 'Shopping',
-        component: () => import('../views/shopping/Shopping')
+        path: 'list',
+        name: 'List',
+        component: () => import('../views/List/List.vue')
       },
       {
-        path: 'study',
-        name: 'Study',
-        component: () => import('../views/study/Study.vue')
+        path: 'shopping',
+        name: 'Shopping',
+        component: () => import('../views/Shopping/Shopping.vue')
+      },
+      {
+        path: 'user',
+        name: 'User',
+        component: () => import('../views/User/User.vue')
       }
     ]
   },
@@ -53,6 +58,13 @@ const routes = [
     name: 'malldetail',
     component: () => import('../views/MallDetail/MallDetail')
   },
+  {
+    path: '/search',
+    //课程详情页面
+    name: 'Search',
+    component: () => import('../views/Search/Search')
+  },
+
   {
     path: '*',
     redirect: {

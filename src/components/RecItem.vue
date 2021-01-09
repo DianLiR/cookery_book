@@ -1,5 +1,5 @@
 <template>
-  <div class="rec_item">
+  <div class="rec_item" @click="toDetail(info.id)">
     <!--    <div class="name_box">-->
     <!--      &lt;!&ndash; 用户信息&ndash;&gt;-->
     <!--      <van-image-->
@@ -40,6 +40,13 @@ export default {
   props: ['info'],
   created() {
     // console.log(this.info)
+  },
+  methods: {
+    toDetail(id) {
+      // let id = url.replace(/[^\d]/g, '')
+      // let str = url.match(/m\/(\S*)\?/)[1]
+      this.$router.push({ name: 'details', params: { id } })
+    }
   }
 }
 </script>
