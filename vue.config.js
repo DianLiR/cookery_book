@@ -31,4 +31,14 @@ module.exports = {
       patterns: [path.resolve(__dirname, './src/assets/variables.less')] // less所在文件路径
     }
   }
+  // devServer: {
+  //   proxy: {
+  //     '/': {
+  //       target: 'http://cookbook.keuaile75.top/',
+  //       changeOrigin: true,
+  //       secure: false, // 如果是https接口，需要配置这个参数
+  //       pathRewrite: { '^/api': '' }
+  //     }
+  //   }
+  // }
 }

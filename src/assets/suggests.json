@@ -1,0 +1,574 @@
+{
+  "state": "success",
+  "result": {
+    "suggests": [
+      {
+        "name": "年夜饭",
+        "type": 2
+      },
+      {
+        "name": "羊肉汤",
+        "type": 2
+      },
+      {
+        "name": "雪花酥",
+        "type": 2
+      },
+      {
+        "name": "腊肉",
+        "type": 2
+      },
+      {
+        "name": "火锅",
+        "type": 2
+      },
+      {
+        "name": "产妇食谱",
+        "type": 2
+      },
+      {
+        "name": "羊肉",
+        "type": 2
+      },
+      {
+        "name": "东北菜",
+        "type": 2
+      },
+      {
+        "name": "润肺止咳吃什么",
+        "type": 2
+      },
+      {
+        "name": "萝卜",
+        "type": 2
+      },
+      {
+        "name": "家常菜",
+        "type": 2
+      },
+      {
+        "name": "下饭菜",
+        "type": 2
+      },
+      {
+        "name": "豆腐",
+        "type": 2
+      },
+      {
+        "name": "面条",
+        "type": 2
+      },
+      {
+        "name": "土豆",
+        "type": 2
+      },
+      {
+        "name": "羊排",
+        "type": 2
+      },
+      {
+        "name": "白菜",
+        "type": 2
+      },
+      {
+        "name": "芋头",
+        "type": 2
+      },
+      {
+        "name": "白萝卜",
+        "type": 2
+      },
+      {
+        "name": "大白菜",
+        "type": 2
+      }
+    ],
+    "suggestdetails": [
+      {
+        "title": "开通豆果VIP，400+美食课程免费学🔥",
+        "color": "#E2483C",
+        "borderColor": "#E2483C",
+        "background_color": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#E2483C",
+          "light_color": "#E2483C"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#E2483C",
+          "light_color": "#E2483C"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#303437",
+          "light_color": "#ffffff"
+        },
+        "action_url": "http://m.douguo.com/vip/memberinfo?isapp=1&dg_refreshkey=enrollprime&open=0"
+      },
+      {
+        "color": "#488040",
+        "borderColor": "#488040",
+        "title_dynamic_color": {
+          "dark_color": "#488040",
+          "light_color": "#488040"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#488040",
+          "light_color": "#488040"
+        },
+        "background_color": "#ffffff",
+        "background_dynamic_color": {
+          "dark_color": "#303437",
+          "light_color": "#ffffff"
+        },
+        "title": "最新菜谱",
+        "action_url": "recipes://www.douguo.com/simplerecipelist?id=36&t=最新菜谱"
+      },
+      {
+        "title": "年夜饭",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "羊肉汤",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "雪花酥",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "腊肉",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "火锅",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "产妇食谱",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "羊肉",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "东北菜",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "润肺止咳吃什么",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "萝卜",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "家常菜",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "下饭菜",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "豆腐",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "面条",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "土豆",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "羊排",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "白菜",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "芋头",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "白萝卜",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      },
+      {
+        "title": "大白菜",
+        "type": 1,
+        "action_url": "",
+        "color": "#3F3F3F",
+        "background_color": "#f7f7f7",
+        "borderColor": "#ffffff",
+        "title_dynamic_color": {
+          "dark_color": "#F7F7F7",
+          "light_color": "#333333"
+        },
+        "border_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        },
+        "background_dynamic_color": {
+          "dark_color": "#404447",
+          "light_color": "#f7f7f7"
+        }
+      }
+    ],
+    "ranking": [],
+    "defaultsuggest": "最新菜谱",
+    "search_commercial": {
+      "id": "ad6337",
+      "pid": "901054910",
+      "ch": 23,
+      "url": "",
+      "i": "",
+      "cap": "广告",
+      "position": "1searchrecipe",
+      "post_body": {
+        "codeid": "901054910",
+        "width": 720,
+        "height": 960,
+        "native_type": 1
+      },
+      "query": "",
+      "client_ip": "171.120.97.138",
+      "req_min_i": 60,
+      "channel": "",
+      "media_type": 0,
+      "request_count": 1,
+      "max_impression_count": 0,
+      "name": "穿山甲种草达人",
+      "img_w": 720,
+      "img_h": 960,
+      "logo": "http://i1.douguo.net/upload//recipe/5/4/e/54776de0d85c3629aa9cee6dcdbcf21e.jpg",
+      "user": {
+        "nick": "穿山甲种草达人",
+        "user_photo": "http://i1.douguo.net/upload//recipe/5/4/e/54776de0d85c3629aa9cee6dcdbcf21e.jpg",
+        "lvl": 7,
+        "user_id": 0
+      },
+      "accessibility_text": "",
+      "d": "",
+      "like_count": 182,
+      "canclose": 0,
+      "ximage": "",
+      "imp_trackers": [],
+      "click_trackers": [],
+      "track_id": 1
+    },
+    "default_search": {
+      "title": "最新菜谱",
+      "action_url": "recipes://www.douguo.com/simplerecipelist?id=36&t=最新菜谱"
+    },
+    "max_pop_sug_lines_count": 5
+  }
+}

@@ -117,6 +117,7 @@ export default {
           id: this.banner_id
         }
       }).then(res => {
+        console.log(res)
         if (res.status === 200) {
           this.$toast.clear()
           // console.log(res)

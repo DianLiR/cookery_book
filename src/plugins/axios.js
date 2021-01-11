@@ -7,7 +7,9 @@ import axios from 'axios'
 // axios.defaults.baseURL = process.env.baseURL || process.env.apiUrl || '';
 // axios.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 // axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-
+// version: 6973.2
+// 配置请求头信息
+// axios.defaults.headers['version'] = '6973.2'
 let config = {
   // baseURL: process.env.baseURL || process.env.apiUrl || ""
   baseURL: 'http://cookbook.keuaile75.top/'
@@ -19,23 +21,23 @@ const _axios = axios.create(config)
 
 _axios.interceptors.request.use(
   function(config) {
-    // Do something before request is sent
+    // 在发送请求之前做点什么
     return config
   },
   function(error) {
-    // Do something with request error
+    // 做一些请求错误
     return Promise.reject(error)
   }
 )
 
-// Add a response interceptor
+// 添加响应拦截器
 _axios.interceptors.response.use(
   function(response) {
-    // Do something with response data
+    // 对响应数据进行处理
     return response
   },
   function(error) {
-    // Do something with response error
+    // 做一些响应错误
     return Promise.reject(error)
   }
 )

@@ -1,6 +1,6 @@
 <template>
   <div class="HotEvents">
-    <!--    <van-cell value="更多" is-link @click="toActivity()">-->
+    <!-- <van-cell value="更多" is-link @click="toActivity()"> -->
     <van-cell value="更多" is-link>
       <template #title>
         <span class="custom-title">{{ data.title }}</span>
@@ -9,7 +9,11 @@
 
     <div class="scroll_box">
       <van-swipe :loop="false" :width="250" :show-indicators="false">
-        <van-swipe-item v-for="item in data.events" :key="item.id">
+        <van-swipe-item
+          v-for="item in data.events"
+          :key="item.id"
+          @click="toActivity(item)"
+        >
           <div>
             <img :src="item.image" alt="item.name" />
             <span>{{ item.name }}</span>

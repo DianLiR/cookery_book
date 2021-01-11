@@ -40,8 +40,12 @@
           <van-grid-item
             v-for="(item, index) in homeData.header.channels"
             :key="item.id"
-            @click="toDetails(item)"
           >
+            <!-- <van-grid-item
+            v-for="(item, index) in homeData.header.channels"
+            :key="item.id"
+            @click="toDetails(item)"
+          > -->
             <template #default>
               <div
                 class="channels_item"
@@ -102,13 +106,13 @@ export default {
     toDetails(item) {
       // let id = item.replace(/[^\d]/g, '')
       // let str = item.match(/m\/(\S*)\?/)[1]
-      this.$router.push({
-        name: 'Catalogs',
-        params: {
-          id: item.id,
-          name: item.title
-        }
-      })
+      // this.$router.push({
+      //   name: 'Catalogs',
+      //   params: {
+      //     id: item.id,
+      //     name: item.title
+      //   }
+      // })
     },
     toDetail(url) {
       let id = url.replace(/[^\d]/g, '')

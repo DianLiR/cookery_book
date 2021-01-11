@@ -1,10 +1,16 @@
 <template>
   <div class="list_item">
     <div v-for="item in info.cs" :key="item.id" class="item">
-      <van-image :src="item.image_url" v-if="item.image_url" />
+      <van-image
+        :src="item.image_url"
+        v-if="item.image_url"
+        @click="toA(item.name)"
+      />
       <div class="items">
         <!-- {{ items.name }} -->
-        <span v-for="items in item.cs" :key="items.id">{{ items.name }}</span>
+        <span v-for="items in item.cs" :key="items.id" @click="toA(items.name)">
+          {{ items.name }}
+        </span>
       </div>
     </div>
   </div>
@@ -13,7 +19,12 @@
 <script>
 export default {
   name: 'ListItem',
-  props: ['info']
+  props: ['info'],
+  methods: {
+    toA(val) {
+      this.$router.push({ name: 'Search', params: { value: val } })
+    }
+  }
 }
 </script>
 
