@@ -27,7 +27,7 @@ export default {
   props: ['info'],
   methods: {
     toA(ie) {
-      console.log('222')
+      // console.log('222')
       this.$router.push({
         name: 'EventPage',
         params: {

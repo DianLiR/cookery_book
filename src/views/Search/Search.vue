@@ -1,26 +1,28 @@
 <template>
   <div class="search">
-    <form action="/">
-      <van-search
-        v-model.trim="value"
-        show-action
-        placeholder="请输入搜索关键词"
-        shape="round"
-        clearable
-      >
-        <template #action>
-          <van-icon name="search" size="20px" />
-        </template>
-        <template #left>
-          <van-icon
-            name="arrow-left"
-            color="skyblue"
-            @click="$router.back()"
-            size="20px"
-          />
-        </template>
-      </van-search>
-    </form>
+    <van-sticky>
+      <form action="/">
+        <van-search
+          v-model.trim="value"
+          show-action
+          placeholder="请输入搜索关键词"
+          shape="round"
+          clearable
+        >
+          <template #action>
+            <van-icon name="search" size="20px" />
+          </template>
+          <template #left>
+            <van-icon
+              name="arrow-left"
+              color="skyblue"
+              @click="$router.back()"
+              size="20px"
+            />
+          </template>
+        </van-search>
+      </form>
+    </van-sticky>
     <div class="local_search" v-if="!value && search_history != ''">
       <span>搜索记录</span>
       <ul class="popular_list">
@@ -48,7 +50,6 @@
 
 <script>
 import SearchContent from '../../components/Search/SearchContent.vue'
-import _ from 'lodash'
 export default {
   components: { SearchContent },
   name: 'Search',
@@ -63,12 +64,12 @@ export default {
   },
   created() {
     if (this.$route.params.value) {
-      console.log(this.$route.params)
+      // console.log(this.$route.params)
       this.value = this.$route.params.value
     }
     this.get_popular_searches()
     // this.getlocaData()
-    this.getRes = _.debounce(this.get_search_results, 1000)
+    this.getRes = this._.debounce(this.get_search_results, 1000)
   },
   watch: {
     value(n, o) {
@@ -89,7 +90,8 @@ export default {
     //   ) || ['']
     // },
     deleSH(i) {
-      this.search_history = this.search_history.filter(item => item !== i)
+      this.search_history = this._.without(this.search_history, i)
+      // this.search_history = this.search_history.filter(item => item !== i)
       localStorage.setItem('SearchRecords', JSON.stringify(this.search_history))
       // localStorage.setItem('SearchRecords', JSON.stringify([a]))
     },
@@ -101,7 +103,7 @@ export default {
       if (this.search_history) {
         localStorage.setItem(
           'SearchRecords',
-          JSON.stringify(_.uniq([...this.search_history, val]))
+          JSON.stringify(this._.uniq([val, ...this.search_history]))
         )
       } else {
         localStorage.setItem('SearchRecords', JSON.stringify([val]))
@@ -142,7 +144,7 @@ export default {
         }
       }).then(res => {
         this.$toast.clear()
-        console.log('get_搜索_结果', res)
+        // console.log('get_搜索_结果', res)
         this.search_results = res.data.result
         this.setlocaData(this.value)
       })
@@ -180,6 +182,7 @@ export default {
 }
 .search {
   .van-search {
+    // z-index: 1000;
     padding: 10px 5px;
     .van-icon-arrow-left {
       padding: 0 5px;

@@ -1,0 +1,38 @@
+<template>
+  <div class="daily_spike">
+    <van-cell :title="info.t" />
+    <swiper class="swiper" :options="swiperOption">
+      <swiper-slide v-for="item in info.ps" :key="item.id">
+        <!-- {{item.id}} -->
+        <spike-item :com="item" />
+      </swiper-slide>
+    </swiper>
+  </div>
+</template>
+
+<script>
+import SpikeItem from './SpikeItem.vue'
+export default {
+  components: { SpikeItem },
+  name: 'DailySpike',
+  props: ['info'],
+  data() {
+    return {
+      swiperOption: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+        freeMode: true
+      }
+    }
+  }
+}
+</script>
+
+<style lang="less" scoped>
+.daily_spike {
+  /deep/.van-cell__title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+</style>

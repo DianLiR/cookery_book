@@ -56,7 +56,7 @@ export default {
       position: absolute;
       left: 5px;
       top: 5px;
-      z-index: 999;
+      z-index: 98;
     }
   }
   .item_content {
@@ -70,11 +70,12 @@ export default {
     }
     .score {
       font-size: 12px;
-      color: #575757;
+      color: @gold75;
     }
     .author {
       display: flex;
       align-items: center;
+      color: @gold75;
       .name {
         margin-left: 4px;
       }

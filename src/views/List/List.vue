@@ -56,20 +56,43 @@ export default {
       isShowlist: true
     }
   },
-  created() {},
-  mounted() {
-    this.getList()
+  created() {
+    // this.getList()
+    const localistdata = JSON.parse(localStorage.getItem('list_data'))
+    if (localistdata && localistdata.expire > Date.now()) {
+      this.get_local()
+    } else {
+      this.get_axios()
+    }
   },
+  mounted() {},
   methods: {
-    getList() {
+    get_local() {
+      console.log('读取本地')
+      let loca_list_data = JSON.parse(localStorage.getItem('list_data'))
+      this.isShowlist = false
+      this.list_data = loca_list_data.lists_data
+      this.items = loca_list_data.items_data
+    },
+    get_axios() {
       this.axios({
         url: '/recipe/catalogs'
       }).then(res => {
+        console.log('读取ajax')
         this.list_data = res.data.result
         this.isShowlist = false
-        this.items = res.data.result.cs.map(item => {
+        let items_data = res.data.result.cs.map(item => {
           return { text: item.name }
         })
+        this.items = items_data
+        localStorage.setItem(
+          'list_data',
+          JSON.stringify({
+            expire: Date.now() + 1 * 30 * 60 * 1000,
+            lists_data: res.data.result,
+            items_data
+          })
+        )
       })
     }
   }

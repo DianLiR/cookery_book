@@ -103,17 +103,6 @@ export default {
     }
   },
   methods: {
-    toDetails(item) {
-      // let id = item.replace(/[^\d]/g, '')
-      // let str = item.match(/m\/(\S*)\?/)[1]
-      // this.$router.push({
-      //   name: 'Catalogs',
-      //   params: {
-      //     id: item.id,
-      //     name: item.title
-      //   }
-      // })
-    },
     toDetail(url) {
       let id = url.replace(/[^\d]/g, '')
       let str = url.match(/m\/(\S*)\?/)[1]

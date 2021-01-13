@@ -5,11 +5,11 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    homeData: null
+    mall_data: null //商城数据
   },
   mutations: {
-    HomeUpdate(state, home_data) {
-      state.homeData = home_data
+    MallUpdate(state, data) {
+      state.mall_data = data
     }
   },
   actions: {},

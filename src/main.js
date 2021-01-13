@@ -3,6 +3,12 @@ import './plugins/axios'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import _ from 'lodash'
+Vue.prototype._ = _
+
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+Vue.use(VueAwesomeSwiper /* { default options with global component } */)
+import 'swiper/swiper-bundle.css'
 
 import Vant from 'vant'
 import 'vant/lib/index.less'
