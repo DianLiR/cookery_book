@@ -44,6 +44,7 @@ export default {
     }
     .text {
       letter-spacing: 1px;
+      display: block;
       white-space: pre-line;
     }
   }

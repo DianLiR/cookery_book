@@ -106,6 +106,7 @@ export default {
     toDetail(url) {
       let id = url.replace(/[^\d]/g, '')
       let str = url.match(/m\/(\S*)\?/)[1]
+      console.log(str, id)
       this.$router.push({ name: str, params: { id } })
     },
 

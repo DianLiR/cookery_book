@@ -44,7 +44,7 @@
           />
           <!-- 美食故事 -->
           <span v-if="recipe.cookstory" class="cookstory">
-            {{ recipe.cookstory }}
+            {{ recipe.cookstory | story_format }}
           </span>
           <!-- 制作难度&时间 -->
           <div
@@ -52,11 +52,15 @@
             class="cook_info"
           >
             <div>
-              <van-image :src="recipe.cook_time_image" width="35" />
+              <div class="info_img">
+                <van-image :src="recipe.cook_time_image" width="100%" />
+              </div>
               <span>{{ recipe.cook_time }}</span>
             </div>
             <div>
-              <van-image :src="recipe.cook_difficulty_image" width="35" />
+              <div class="info_img">
+                <van-image :src="recipe.cook_difficulty_image" width="100%" />
+              </div>
               <span>{{ recipe.cook_difficulty }}</span>
             </div>
           </div>
@@ -88,6 +92,17 @@ import MakeStep from '@/components/MakeStep.vue'
 export default {
   name: 'Detail',
   components: { AuthorInfo, Materials, MakeStep },
+  filters: {
+    story_format(v) {
+      // 网址(支持端口和"?+参数"和"#+参数)
+      // 网址(支持端口和"?+参数"和"#+参数)
+      var reg = /(http:\/\/|https:\/\/)((\w|=|\?|\.|\/|&|-)+)/g
+
+      // let str = v.replace(reg, '')
+      // console.log(str)
+      return v.replace(reg, '')
+    }
+  },
   // components: { DetailHeader },
   data() {
     return {
@@ -173,13 +188,18 @@ export default {
       .cook_info {
         display: flex;
         margin: auto;
-        width: 70%;
+        width: 80%;
         // height: 45px;
         padding: 15px 0;
         justify-content: space-between;
+        .info_img {
+          width: 45px;
+        }
         div {
           display: flex;
           align-items: center;
+          justify-content: space-between;
+          max-width: 115px;
           span {
             margin-left: 5px;
           }

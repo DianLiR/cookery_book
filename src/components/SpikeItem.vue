@@ -1,6 +1,6 @@
 <template>
-  <div class="spike_item">
-    <van-image :src="com.i" radius="8" />
+  <div class="spike_item" @click="toDetail">
+    <van-image :src="com.i" radius="8" lazy-load height="100%" width="100%" />
     <div class="text_name van-multi-ellipsis--l2">{{ com.n }}</div>
     <div class="price">
       <span>￥{{ com.p }}</span>
@@ -12,7 +12,14 @@
 <script>
 export default {
   name: 'SpikeItem',
-  props: ['com']
+  props: ['com'],
+  methods: {
+    toDetail() {
+      console.log('1')
+      let id = this.com.id
+      this.$router.push({ name: 'malldetail', params: { id } })
+    }
+  }
 }
 </script>
 

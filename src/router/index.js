@@ -53,16 +53,28 @@ const routes = [
     component: () => import('../views/CourseDetail/CourseDetail')
   },
   {
-    path: '/malldetail/:id',
+    path: '/m_detail/:id',
     //课程详情页面
     name: 'malldetail',
     component: () => import('../views/MallDetail/MallDetail')
+  },
+  {
+    path: '/n_detail/:id',
+    //课程详情页面
+    name: 'notedetail',
+    component: () => import('../views/Notedetail/Notedetail')
   },
   {
     path: '/search',
     //课程详情页面
     name: 'Search',
     component: () => import('../views/Search/Search')
+  },
+  {
+    path: '/classify/:type',
+    //课程详情页面
+    name: 'ClassifyDetails',
+    component: () => import('../views/ClassifyDetails/ClassifyDetails')
   },
 
   {

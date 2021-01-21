@@ -5,10 +5,12 @@ import router from './router'
 import store from './store'
 import _ from 'lodash'
 Vue.prototype._ = _
-
+// import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 Vue.use(VueAwesomeSwiper /* { default options with global component } */)
+
 import 'swiper/swiper-bundle.css'
+import 'swiper/components/pagination/pagination.min.css'
 
 import Vant from 'vant'
 import 'vant/lib/index.less'

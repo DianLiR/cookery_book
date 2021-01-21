@@ -24,6 +24,13 @@ module.exports = {
       }
     }
   },
+  // devServer: {
+  //   contentBase: './dist',
+  //   open: process.platform === 'darwin',
+  //   hot: '0.0.0.0',
+  //   port: 8080,
+  //   disableHostCheck: true
+  // },
   pluginOptions: {
     // 第三方插件配置
     'style-resources-loader': {

@@ -1,6 +1,6 @@
 <template>
   <div class="daily_spike">
-    <van-cell :title="info.t" />
+    <van-cell :title="info.t" class="shop_title" />
     <swiper class="swiper" :options="swiperOption">
       <swiper-slide v-for="item in info.ps" :key="item.id">
         <!-- {{item.id}} -->
@@ -27,12 +27,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less" scoped>
-.daily_spike {
-  /deep/.van-cell__title {
-    font-size: 16px;
-    font-weight: 700;
-  }
-}
-</style>
