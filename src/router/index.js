@@ -76,7 +76,11 @@ const routes = [
     name: 'ClassifyDetails',
     component: () => import('../views/ClassifyDetails/ClassifyDetails')
   },
-
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/Login/Login.vue')
+  },
   {
     path: '*',
     redirect: {

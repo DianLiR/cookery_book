@@ -35,17 +35,17 @@
 
       <div class="header_channels">
         <!-- 分类 -->
-        <van-skeleton :row="6" v-if="loading" style="margin:15px" animate />
+        <!-- <van-skeleton :row="6" v-if="loading" style="margin:15px" animate />
         <van-grid :border="false" :column-num="5" v-else>
           <van-grid-item
             v-for="(item, index) in homeData.header.channels"
             :key="item.id"
           >
-            <!-- <van-grid-item
-            v-for="(item, index) in homeData.header.channels"
-            :key="item.id"
-            @click="toDetails(item)"
-          > -->
+          //  <van-grid-item
+          //  v-for="(item, index) in homeData.header.channels"
+          //  :key="item.id"
+          //  @click="toDetails(item)"
+          //>
             <template #default>
               <div
                 class="channels_item"
@@ -56,7 +56,7 @@
               </div>
             </template>
           </van-grid-item>
-        </van-grid>
+        </van-grid> -->
       </div>
       <!-- 热门活动 -->
       <div class="c_skeleton" v-if="loading"></div>

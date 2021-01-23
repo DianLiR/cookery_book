@@ -2,7 +2,7 @@
   <div class="daily_spike">
     <van-cell :title="info.t" class="shop_title" />
     <swiper class="swiper" :options="swiperOption">
-      <swiper-slide v-for="item in info.ps" :key="item.id">
+      <swiper-slide v-for="(item, i) in info.ps" :key="i">
         <!-- {{item.id}} -->
         <spike-item :com="item" />
       </swiper-slide>
