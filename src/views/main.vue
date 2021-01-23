@@ -47,12 +47,12 @@ export default {
           name: 'List',
           path: '/list'
         },
-        {
-          title: '商城',
-          icon: 'shop-o',
-          name: 'Shopping',
-          path: '/shopping'
-        },
+        // {
+        //   title: '商城',
+        //   icon: 'shop-o',
+        //   name: 'Shopping',
+        //   path: '/shopping'
+        // },
         {
           title: '我的',
           icon: 'user-o',

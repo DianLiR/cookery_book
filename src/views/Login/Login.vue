@@ -17,22 +17,25 @@
       <template v-if="page_status">
         <div class="login">
           <van-field
-            v-model="user_name"
-            label="用户名"
+            v-model.trim="user_name"
+            label="用户"
             format-trigger="onBlur"
-            placeholder="请输入用户名"
+            placeholder="用户名/账号"
             key="login"
+            clearable
           />
           <van-field
-            v-model="user_password"
+            v-model.trim="user_password"
             label="密码"
             format-trigger="onBlur"
             placeholder="请输入密码"
-            type="password"
+            :type="showPass ? 'text' : 'password'"
+            :right-icon="showPass ? 'closed-eye' : 'eye-o'"
+            @click-right-icon="showPass = !showPass"
           />
         </div>
         <div class="sub_btn">
-          <van-button round block type="info">
+          <van-button round block type="info" @click="us_login">
             登录
           </van-button>
         </div>
@@ -40,23 +43,28 @@
       <template v-else>
         <div class="registered">
           <van-field
-            v-model="user_name_re"
+            v-model.trim="user_name_re"
             label="用户名"
             format-trigger="onBlur"
             placeholder="请输入注册用户名"
+            clearable
           />
           <van-field
-            v-model="user_an_re"
+            v-model.trim="user_an_re"
             label="账号"
             format-trigger="onBlur"
             placeholder="请输入注册账号"
+            clearable
           />
           <van-field
-            v-model="user_password_re"
+            v-model.trim="user_password_re"
             label="密码"
             format-trigger="onBlur"
             placeholder="请输入注册密码"
-            type="password"
+            clearable
+            :type="showR_Pass ? 'text' : 'password'"
+            :right-icon="showR_Pass ? 'closed-eye' : 'eye-o'"
+            @click-right-icon="showR_Pass = !showR_Pass"
           />
         </div>
         <div class="sub_btn">
@@ -75,6 +83,8 @@ export default {
   data() {
     return {
       page_status: 'true',
+      showPass: false,
+      showR_Pass: false,
       user_name: '',
       user_password: '',
       user_name_re: '',
@@ -92,6 +102,26 @@ export default {
       // 例子
       // Kd@curry666
     },
+    us_login() {
+      var userData = JSON.parse(localStorage.getItem('user_data'))
+      // if (this.user_name == null || this.user_password == null) return
+      if (this.user_name == '' || this.user_password == '') {
+        this.$toast('不能为空')
+        return
+      }
+      let isT = userData.some(item => {
+        let n = item.u_account == this.user_name
+        let p = item.u_password == this.user_password
+        if (n && p) {
+          return true
+        }
+      })
+      if (isT) {
+        this.$toast.success('登陆成功')
+      } else {
+        this.$toast.fail('账号/密码错误')
+      }
+    },
 
     registered() {
       // let an_reg =
@@ -100,6 +130,10 @@ export default {
         this.user_password_re
       )
       console.log(anR, pasR)
+      if (anR && pasR) {
+        console.log('注册成功')
+        localStorage.setItem('userData', JSON.stringify([]))
+      }
     }
   }
 }

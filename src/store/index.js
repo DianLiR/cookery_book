@@ -5,11 +5,12 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    mall_data: null //商城数据
+    mall_data: null, //商城数据,
+    u_data: ''
   },
   mutations: {
-    MallUpdate(state, data) {
-      state.mall_data = data
+    u_data_login(state, data) {
+      state.u_data = data
     }
   },
   actions: {},
