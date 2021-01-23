@@ -3,30 +3,32 @@
     <keep-alive><router-view /></keep-alive>
   </div>
 </template>
+//
 <script>
-localStorage.setItem(
-  'user_data',
-  JSON.stringify([
-    {
-      // A66666: {
-      u_name: '小明',
-      u_account: 'A66666',
-      u_password: 'A123456',
-      desc: '你好，我是小明',
-      favorites: ['2978310', '3055780']
-      // }
-    },
-    {
-      // A66667: {
-      u_name: '小黄',
-      u_account: 'A66667',
-      u_password: 'A123457',
-      desc: '你好',
-      favorites: ['3055768']
-      // }
-    }
-  ])
-)
+// localStorage.setItem(
+//   'user_data',
+//   JSON.stringify([
+//     {
+//       // A66666: {
+//       u_name: '小明',
+//       u_account: 'A66666',
+//       u_password: 'A123456',
+//       desc: '你好，我是小明',
+//       favorites: ['2978310', '3055780']
+//       // }
+//     },
+//     {
+//       // A66667: {
+//       u_name: '小黄',
+//       u_account: 'A66667',
+//       u_password: 'A123457',
+//       desc: '你好',
+//       favorites: ['3055768']
+//       // }
+//     }
+//   ])
+// )
+//
 </script>
 <style lang="less">
 #app {

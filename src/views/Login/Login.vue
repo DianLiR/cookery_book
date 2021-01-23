@@ -17,7 +17,7 @@
       <template v-if="page_status">
         <div class="login">
           <van-field
-            v-model.trim="user_name"
+            v-model.trim="login.name"
             label="用户"
             format-trigger="onBlur"
             placeholder="用户名/账号"
@@ -25,7 +25,7 @@
             clearable
           />
           <van-field
-            v-model.trim="user_password"
+            v-model.trim="login.password"
             label="密码"
             format-trigger="onBlur"
             placeholder="请输入密码"
@@ -43,21 +43,21 @@
       <template v-else>
         <div class="registered">
           <van-field
-            v-model.trim="user_name_re"
+            v-model.trim="register.name"
             label="用户名"
             format-trigger="onBlur"
             placeholder="请输入注册用户名"
             clearable
           />
           <van-field
-            v-model.trim="user_an_re"
+            v-model.trim="register.account"
             label="账号"
             format-trigger="onBlur"
             placeholder="请输入注册账号"
             clearable
           />
           <van-field
-            v-model.trim="user_password_re"
+            v-model.trim="register.password"
             label="密码"
             format-trigger="onBlur"
             placeholder="请输入注册密码"
@@ -85,11 +85,15 @@ export default {
       page_status: 'true',
       showPass: false,
       showR_Pass: false,
-      user_name: '',
-      user_password: '',
-      user_name_re: '',
-      user_password_re: '',
-      user_an_re: ''
+      login: {
+        name: '',
+        password: ''
+      },
+      register: {
+        name: '',
+        password: '',
+        account: ''
+      }
     }
   },
   methods: {
@@ -110,8 +114,8 @@ export default {
         return
       }
       let isT = userData.some(item => {
-        let n = item.u_account == this.user_name
-        let p = item.u_password == this.user_password
+        let n = item.u_account == this.login.name
+        let p = item.u_password == this.login.password
         if (n && p) {
           return true
         }
@@ -124,15 +128,34 @@ export default {
     },
 
     registered() {
-      // let an_reg =
-      let anR = /^[a-zA-Z]\w{4,15}$/.test(this.user_an_re)
-      let pasR = /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z]).*$/.test(
-        this.user_password_re
+      // 密码强度校验，最少6位，包括至少1个大写字母，1个小写字母，1个数字，1个特殊字符
+      // ;/^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*? ]).*$/
+      // 例子
+      // 帐号是否合法(字母开头，允许5-16字节，允许字母数字下划线组合
+      if (this.user_name == '' || this.user_password == '') {
+        this.$toast('不能为空')
+        return
+      }
+      // 例子
+      let local_user = JSON.parse(localStorage.getItem('user_data'))
+      let accR = /^[a-zA-Z]\w{4,15}$/.test(this.register.account)
+      let pasR = /^.*(?=.{6,})(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).*$/.test(
+        this.register.password
       )
-      console.log(anR, pasR)
-      if (anR && pasR) {
-        console.log('注册成功')
-        localStorage.setItem('userData', JSON.stringify([]))
+      let data = {
+        u_name: this.register.name,
+        u_account: this.register.account,
+        u_password: this.register.password,
+        desc: '',
+        favorites: []
+      }
+      // console.log(accR, pasR)
+      if (accR && pasR) {
+        this.$toast.success('注册成功')
+        let users = localStorage.users
+        console.log(users)
+        // console.log(...this.userData)
+        localStorage.setItem('user_data', JSON.stringify([...local_user, data]))
       }
     }
   }
