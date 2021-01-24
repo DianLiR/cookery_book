@@ -1,31 +1,25 @@
 <template>
-  <div class="search_list_item" @click="toDetail(info.id)">
+  <div class="search_list_item" @click="toDetail(id)">
     <div class="item_image">
-      <van-tag type="success" v-if="info.ecs" mark>独家</van-tag>
-      <van-image
-        lazy-load
-        :src="info.img"
-        fit="cover"
-        radius="10px"
-        height="100%"
-      />
+      <van-tag type="success" v-if="ecs" mark>独家</van-tag>
+      <van-image lazy-load :src="img" fit="cover" radius="10px" height="100%" />
     </div>
     <div class="item_content">
-      <span class="title">{{ info.n }}</span>
-      <span class="score">{{ info.rate + '分✦' + info.recommend_label }}</span>
-      <div class="tags" v-if="info.recipe_list_tags[0]">
+      <span class="title">{{ n }}</span>
+      <span class="score">{{ rate + '分✦' + recommend_label }}</span>
+      <div class="tags" v-if="recipe_list_tags[0]">
         <van-tag
+          v-for="item in recipe_list_tags"
           :color="item.background_end_color"
           :text-color="item.text_color"
-          v-for="item in info.recipe_list_tags"
           :key="item.index"
         >
           {{ item.text }}
         </van-tag>
       </div>
       <div class="author">
-        <van-image :src="info.a.p" round width="1em" />
-        <span class="name van-ellipsis">{{ info.a.n }}</span>
+        <van-image :src="ap" round width="1em" />
+        <span class="name van-ellipsis">{{ an }}</span>
       </div>
     </div>
   </div>
@@ -34,10 +28,21 @@
 <script>
 export default {
   name: 'SearchListItem',
-  props: ['info'],
+  props: [
+    'id',
+    'ecs',
+    'img',
+    'n',
+    'rate',
+    'recommend_label',
+    'recipe_list_tags',
+    'ap',
+    'an'
+  ],
+
   methods: {
-    toDetail(id) {
-      this.$router.push({ name: 'details', params: { id } })
+    toDetail() {
+      this.$router.push({ name: 'details', params: { id: this.id } })
     }
   }
 }
@@ -52,6 +57,8 @@ export default {
     position: relative;
     flex: 1;
     max-height: 100px;
+    width: 138px;
+    height: 100px;
     .van-tag {
       position: absolute;
       left: 5px;
@@ -76,6 +83,7 @@ export default {
       display: flex;
       align-items: center;
       color: @gold75;
+
       .name {
         margin-left: 4px;
       }

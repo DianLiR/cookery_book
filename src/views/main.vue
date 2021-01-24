@@ -1,7 +1,10 @@
 <template>
   <div class="main">
     <div class="main_box">
-      <keep-alive><router-view /></keep-alive>
+      <keep-alive>
+        <router-view v-if="$route.meta.keepAlive"></router-view>
+      </keep-alive>
+      <router-view v-if="!$route.meta.keepAlive"></router-view>
     </div>
     <van-tabbar
       v-model="active"
@@ -30,6 +33,12 @@ export default {
   //     return this.$route.name
   //   }
   // },
+  watch: {
+    '$route.name': function(newVal, o) {
+      this.active = newVal || o
+    }
+  },
+
   data() {
     return {
       active: this.$route.name || 'Home',

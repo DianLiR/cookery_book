@@ -13,7 +13,15 @@
       <search-list-item
         v-for="item in info.list"
         :key="item.r.id"
-        :info="item.r"
+        :id="item.r.id"
+        :ecs="item.r.ecs"
+        :img="item.r.img"
+        :n="item.r.n"
+        :rate="item.r.rate"
+        :recommend_label="item.r.recommend_label"
+        :recipe_list_tags="item.r.recipe_list_tags"
+        :ap="item.r.a.p"
+        :an="item.r.a.n"
       />
     </van-list>
   </div>

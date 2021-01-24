@@ -5,6 +5,9 @@ import router from './router'
 import store from './store'
 import _ from 'lodash'
 Vue.prototype._ = _
+
+import qs from 'qs'
+Vue.prototype.$qs = qs
 // import { swiper, swiperSlide } from 'vue-awesome-swiper'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 Vue.use(VueAwesomeSwiper /* { default options with global component } */)

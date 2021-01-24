@@ -1,6 +1,6 @@
 <template>
   <div class="Recommend">
-    <van-sticky :offset-top="50">
+    <van-sticky :offset-top="52">
       <van-divider
         :style="{
           fontSize: '18px',

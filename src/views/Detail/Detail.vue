@@ -114,9 +114,16 @@ export default {
   },
   created() {
     this.banner_id = this.$route.params.id
+    this.isShow = false
     this.getDetail()
   },
+  // activated() {
+  //   this.banner_id = this.$route.params.id
+  //   this.isShow = false
+  //   this.getDetail()
+  // },
   methods: {
+    set_local() {},
     getDetail() {
       this.$toast.loading({
         message: '加载中...',
@@ -136,9 +143,22 @@ export default {
         if (res.status === 200) {
           this.$toast.clear()
           // console.log(res)
-          this.recipe = res.data.result.recipe
+          let re = res.data.result.recipe
+          this.recipe = re
           this.isShow = true
-          console.log(this.recipe)
+          // console.log(this.recipe)
+          let local = JSON.parse(localStorage.getItem('browse_calendar'))
+          // let data = this._.uniq(local)
+          // console.log(data)
+          let data = [re, ...local]
+          // console.log('data=>', data)
+          // let aa = this._.uniqBy(data, 'cook_id')
+          // console.log('aa=>', aa)
+          localStorage.setItem(
+            'browse_calendar',
+            // JSON.stringify([...local, re])
+            JSON.stringify(this._.uniqBy(data, 'cook_id'))
+          )
         } else {
           this.$toast(res.statusText)
         }

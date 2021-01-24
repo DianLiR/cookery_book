@@ -5,12 +5,23 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    mall_data: null, //商城数据,
-    u_data: ''
+    user: JSON.parse(window.sessionStorage.getItem('user')),
+    token: JSON.parse(window.sessionStorage.getItem('token'))
   },
   mutations: {
-    u_data_login(state, data) {
-      state.u_data = data
+    set_token(state, data) {
+      state.token = data
+      window.sessionStorage.setItem('token', JSON.stringify(data))
+    },
+    set_user(state, data) {
+      state.user = data
+      window.sessionStorage.setItem('user', JSON.stringify(data))
+    },
+    logout(state) {
+      state.token = null
+      state.user = null
+      window.sessionStorage.removeItem('token')
+      window.sessionStorage.removeItem('user')
     }
   },
   actions: {},
