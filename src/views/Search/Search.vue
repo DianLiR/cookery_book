@@ -62,6 +62,14 @@ export default {
       search_history: JSON.parse(localStorage.getItem('SearchRecords'))
     }
   },
+  activated() {
+    if (this.$route.params.value) {
+      // console.log(this.$route.params)
+      this.value = this.$route.params.value
+    }
+
+    this.search_results = ''
+  },
   created() {
     if (this.$route.params.value) {
       // console.log(this.$route.params)
